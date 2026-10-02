@@ -186,7 +186,7 @@ public class Arreglos_ordenados {
             Array_fechas[j + 1] = fechaNueva;
             n++; // Volvemos a incrementar el tamaño
 
-            // Le avisamos al usuario en qué índice quedó finalmente como pide el PDF
+            // Le avisamos al usuario en qué índice quedó
             System.out.println("Fecha modificada correctamente. Quedó guardada en el índice [" + (j + 1) + "].");
 
         } else {
