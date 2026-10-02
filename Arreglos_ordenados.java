@@ -149,4 +149,49 @@ public class Arreglos_ordenados {
             System.out.println("No se pudo localizar y por lo tanto no procede la operación de eliminación.");
         }
     }
+
+    // Modificar
+    public static void modificar() {
+        if (n == -1) {
+            System.out.println("El arreglo está vacío, no hay nada que modificar.");
+            return;
+        }
+
+        System.out.println("Ingrese la fecha a modificar (dd/MM/yyyy): ");
+        String fechaViejaStr = scan.nextLine();
+        LocalDate fechaVieja = LocalDate.parse(fechaViejaStr, formato);
+
+        System.out.println("Buscando la fecha en la memoria...");
+        // Usamos la binaria porque es más rápida
+        int posicion = busquedaBinaria(fechaVieja);
+
+        if (posicion != -1) {
+            System.out.println("Ingrese la nueva fecha (dd/MM/yyyy): ");
+            String fechaNuevaStr = scan.nextLine();
+            LocalDate fechaNueva = LocalDate.parse(fechaNuevaStr, formato);
+
+            // PASO 1: Eliminar la vieja (Shift a la izquierda)
+            for (int i = posicion; i < n; i++) {
+                Array_fechas[i] = Array_fechas[i + 1];
+            }
+            Array_fechas[n] = null;
+            n--; // Reducimos temporalmente el tamaño
+
+            // PASO 2: Insertar la nueva conservando el orden (Shift a la derecha)
+            int j = n;
+            while (j >= 0 && Array_fechas[j].isAfter(fechaNueva)) {
+                Array_fechas[j + 1] = Array_fechas[j];
+                j--;
+            }
+            Array_fechas[j + 1] = fechaNueva;
+            n++; // Volvemos a incrementar el tamaño
+
+            // Le avisamos al usuario en qué índice quedó finalmente como pide el PDF
+            System.out.println("Fecha modificada correctamente. Quedó guardada en el índice [" + (j + 1) + "].");
+
+        } else {
+            System.out.println("No se pudo localizar y por lo tanto no procede la operación de modificación.");
+        }
+    }
+
 }
