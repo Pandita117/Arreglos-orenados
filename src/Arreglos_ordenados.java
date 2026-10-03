@@ -149,6 +149,7 @@ public class Arreglos_ordenados {
         // 4. Oficializamos que hay una fecha más en memoria
         n++;
         System.out.println("Fecha insertada correctamente ");
+        System.out.println("Fecha insertada en la localidad:" + (i + 1));
     }
 
 
@@ -162,7 +163,7 @@ public class Arreglos_ordenados {
             int comparacion = fechaBuscada.compareTo(Array_fechas[i]);
 
             if (comparacion == 0) {
-                System.out.println("Fecha encontrada en: " + i);
+                System.out.println("Fecha encontrada en posicion: " + i);
                 System.out.println("Ciclos tomados (Lineal Optimizada): " + ciclos);
                 return i;
             }
@@ -229,6 +230,7 @@ public class Arreglos_ordenados {
             Array_fechas[n] = null;
             n = n - 1;
             System.out.println("Fecha eliminada exitosamente Conservando el orden.");
+            System.out.println("Fecha eliminada en la localidad: " + posicion);
         } else {
             System.out.println("No se pudo localizar y por lo tanto no procede la operación de eliminación.");
         }

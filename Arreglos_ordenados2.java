@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 
-public class Arreglos_ordenados {
+public class Arreglos_ordenados2 {
     static Scanner scan = new Scanner(System.in);
     static int n = -1;
     static int MAX = 20;
@@ -67,6 +67,7 @@ public class Arreglos_ordenados {
         // 4. Oficializamos que hay una fecha más en memoria
         n++;
         System.out.println("Fecha insertada correctamente ");
+        System.out.println("Fecha insertada en la localidad:" + (i + 1));
     }
 
 
@@ -80,7 +81,7 @@ public class Arreglos_ordenados {
             int comparacion = fechaBuscada.compareTo(Array_fechas[i]);
 
             if (comparacion == 0) {
-                System.out.println("Fecha encontrada en: " + i);
+                System.out.println("Fecha encontrada en posicion: " + i);
                 System.out.println("Ciclos tomados (Lineal Optimizada): " + ciclos);
                 return i;
             }
